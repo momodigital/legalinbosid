@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Legal Consultant Pro | Perizinan & Legalitas Bisnis</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins + Playfair Display untuk aksen profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0B0F17;
+            --bg-secondary: #121926;
+            --bg-card: #1A2433;
+            --accent-gold: #C9A96E;
+            --accent-blue: #4A90E2;
+            --text-primary: #F0F4FA;
+            --text-secondary: #B0C0D0;
+            --border-glow: rgba(201, 169, 110, 0.15);
+            --gradient-1: linear-gradient(135deg, #C9A96E 0%, #8B6F4C 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-phone {
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-phone:hover {
+            background: rgba(201, 169, 110, 0.2);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-phone i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .nav-phone a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #FFFFFF, #C9A96E);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid var(--accent-gold);
+            border-radius: 60px;
+            padding: 15px 30px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge i {
+            font-size: 1.5rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 60px 0 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 60%;
+            background: var(--gradient-1);
+            border-radius: 5px;
+        }
+
+        /* Service Grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            border-radius: 24px;
+            padding: 30px 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Special Offer Banner */
+        .offer-banner {
+            background: linear-gradient(145deg, #1A2433, #0F1722);
+            border: 1px solid var(--accent-gold);
+            border-radius: 40px;
+            padding: 30px 40px;
+            margin: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .offer-text {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .offer-text i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+        }
+
+        .offer-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .offer-badge {
+            background: rgba(201, 169, 110, 0.2);
+            border: 1px solid var(--accent-gold);
+            padding: 15px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(145deg, #121926, #0B0F17);
+            border-radius: 50px;
+            padding: 50px;
+            margin: 60px 0;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-phone {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(201, 169, 110, 0.1);
+            padding: 20px 30px;
+            border-radius: 60px;
+            border: 1px solid var(--accent-gold);
+            margin: 30px 0;
+        }
+
+        .contact-phone i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-phone span {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .contact-features {
+            display: flex;
+            gap: 20px;
+            color: var(--text-secondary);
+        }
+
+        .contact-features i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        .contact-image {
+            background: rgba(201, 169, 110, 0.05);
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            border: 1px dashed var(--accent-gold);
+        }
+
+        .contact-image i {
+            font-size: 6rem;
+            color: var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        .contact-image p {
+            margin-top: 20px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(201, 169, 110, 0.2);
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-badge {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .offer-text {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-phone span {
+                font-size: 1.4rem;
+            }
+
+            .contact-phone {
+                padding: 15px 20px;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Legal Counsel Pro</h1>
+                <span>SOLUSI LEGALITAS BISNIS</span>
+            </div>
+            <div class="nav-phone">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:087715373601">0877 1537 3601</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero animate">
+            <div class="hero-content">
+                <h2>Layanan Perizinan & Legalitas Bisnis Professional dan Terpercaya</h2>
+                <p>Optimalkan strategi, tingkatkan efisiensi, dan pencapaian keberlanjutan bisnis dengan layanan konsultasi kami yang terpercaya dan berpengalaman.</p>
+                <div class="hero-badge">
+                    <i class="fas fa-gem"></i>
+                    <span>Save More with Daily Special Offers & Best Prices</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Services -->
+        <h2 class="section-title">Layanan Unggulan</h2>
+        <div class="service-grid" id="mainServices"></div>
+
+        <!-- Additional Services -->
+        <h2 class="section-title">Layanan Lengkap Lainnya</h2>
+        <div class="service-grid" id="additionalServices"></div>
+
+        <!-- Special Offer Banner -->
+        <div class="offer-banner">
+            <div class="offer-text">
+                <i class="fas fa-tags"></i>
+                <h3>Special Daily Offers</h3>
+            </div>
+            <div class="offer-badge">
+                <i class="fas fa-clock"></i> Limited Time
+            </div>
+        </div>
+
+        <!-- Extra Services -->
+        <div class="service-grid" id="extraServices"></div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Hubungi Kami Sekarang</h3>
+                    <p>Konsultasi gratis untuk kebutuhan legalitas dan perizinan bisnis Anda. Tim ahli kami siap membantu 24/7.</p>
+                    
+                    <div class="contact-phone">
+                        <i class="fas fa-phone-volume"></i>
+                        <span>0877 1537 3601</span>
+                    </div>
+
+                    <div class="contact-features">
+                        <div><i class="fas fa-check-circle"></i> Respon Cepat</div>
+                        <div><i class="fas fa-check-circle"></i> Konsultasi Gratis</div>
+                        <div><i class="fas fa-check-circle"></i> Terpercaya</div>
+                    </div>
+                </div>
+                
+                <div class="contact-image">
+                    <i class="fas fa-balance-scale"></i>
+                    <p>Legal Consultant Professional<br>Pengalaman Lebih dari 10 Tahun</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 Legal Counsel Pro. All rights reserved. | Professional Legal & Business Solutions</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Data services berdasarkan gambar
+        const mainServices = [
+            "Pendirian dan Perubahan Badan Usaha",
+            "Contractor Safety Management System (CSMS)",
+            "SK Pengangkutan Limbah B3 49432 / Kimia",
+            "Kartu Pengawasan",
+            "Izin Niaga Umum (INU)",
+            "Penyimpanan Migas (SKUP)",
+            "Standar Nasional Indonesia (NSI)",
+            "Nomor Induk Berusaha (NIB)",
+            "PKKPR",
+            "Penambahan KBLI, SPPL, Sertifikat Standard OSS",
+            "IUJP, IUP, IUP OPK",
+            "Kartu Pengawasan (dua)",
+            "Laporan Pajak & Keuangan"
+        ];
+
+        const additionalServices = [
+            "Pelatihan Sertifikasi Driver, Tenaga Ahli K3, dan sertifikasi lainnya",
+            "Penyelenggara Perjalanan Ibadah Umrah (PPIU)",
+            "SIUPMSE, STP, SIUP3A, STP, SPBU, Ekspor Impor",
+            "Amdal – UKL UPL",
+            "Sertifikat Badan Usaha (SBU)",
+            "Surat Izin Usaha Jasa Pengurusan Transportasi (SIUJPT)",
+            "International Organization for Standardization (ISO)",
+            "Pengurusan Dok Kapal (SIUPAL, RPT, dll)",
+            "Persetujuan Layak Operasi (PLO)",
+            "Sertifikat Laik Fungsi (SLF)",
+            "Badan Pengawas Obat dan Makanan (BPOM)"
+        ];
+
+        const extraServices = [
+            "Sertifikasi BNSP & Kemnaker",
+            "Pengurusan SIUP dan TDP",
+            "Legal Drafting & Kontrak Bisnis",
+            "Due Diligence Perusahaan"
+        ];
+
+        // Icon mapping (random tapi relevan)
+        const icons = [
+            "fa-building", "fa-hard-hat", "fa-truck", "fa-id-card", "fa-store", 
+            "fa-oil-can", "fa-certificate", "fa-fingerprint", "fa-map-marked-alt",
+            "fa-plus-circle", "fa-hard-hat", "fa-id-card", "fa-file-invoice-dollar",
+            "fa-chalkboard-teacher", "fa-kaaba", "fa-laptop", "fa-leaf", "fa-briefcase",
+            "fa-ship", "fa-globe", "fa-ship", "fa-check-double", "fa-clipboard-check",
+            "fa-capsules", "fa-award", "fa-file-signature", "fa-gavel", "fa-search"
+        ];
+
+        // Function to create service cards
+        function createServiceCards(services, elementId, startIconIndex = 0) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+
+            services.forEach((service, index) => {
+                const card = document.createElement('div');
+                card.className = 'service-card animate';
+                
+                const iconIndex = (startIconIndex + index) % icons.length;
+                const icon = icons[iconIndex];
+                
+                // Get short description
+                let description = "Layanan profesional & terpercaya untuk kebutuhan bisnis Anda.";
+                if (service.includes("ISO")) description = "Sertifikasi sistem manajemen internasional.";
+                else if (service.includes("K3")) description = "Keselamatan dan kesehatan kerja.";
+                else if (service.includes("Amdal")) description = "Analisis dampak lingkungan.";
+                
+                card.innerHTML = `
+                    <div class="service-icon"><i class="fas ${icon}"></i></div>
+                    <h3>${service}</h3>
+                    <p>${description}</p>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Load all services when page ready
+        document.addEventListener('DOMContentLoaded', function() {
+            createServiceCards(mainServices, 'mainServices', 0);
+            createServiceCards(additionalServices, 'additionalServices', 13);
+            createServiceCards(extraServices, 'extraServices', 24);
+        });
+    </script>
+</body>
+  </html>
