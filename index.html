@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Legal Consultant Pro | Perizinan & Legalitas Bisnis</title>
-    <!-- Font Awesome 6 (free) -->
+    <title>LegalinBossID - Legal Consultant</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Poppins + Playfair Display untuk aksen profesional -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -35,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -61,6 +60,7 @@
             padding: 20px 0;
             flex-wrap: wrap;
             border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+            position: relative;
         }
 
         .logo {
@@ -86,6 +86,83 @@
             text-transform: uppercase;
         }
 
+        /* Menu Navigasi */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0;
+        }
+
+        .nav-link i {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 15px 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown a:hover {
+            background: rgba(201, 169, 110, 0.1);
+            color: var(--accent-gold);
+            padding-left: 30px;
+        }
+
+        .dropdown a i {
+            width: 20px;
+            color: var(--accent-gold);
+        }
+
         .nav-phone {
             background: rgba(201, 169, 110, 0.1);
             border: 1px solid rgba(201, 169, 110, 0.3);
@@ -95,6 +172,7 @@
             align-items: center;
             gap: 12px;
             transition: all 0.3s ease;
+            margin-left: 20px;
         }
 
         .nav-phone:hover {
@@ -113,6 +191,14 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -157,8 +243,34 @@
             backdrop-filter: blur(10px);
         }
 
-        .hero-badge i {
-            font-size: 1.5rem;
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px 20px;
+            border: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Section Title */
@@ -201,26 +313,10 @@
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(201, 169, 110, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
         .service-card:hover {
             transform: translateY(-8px);
             border-color: var(--accent-gold);
             box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
         }
 
         .service-icon {
@@ -241,45 +337,113 @@
             font-size: 0.9rem;
         }
 
-        /* Special Offer Banner */
-        .offer-banner {
-            background: linear-gradient(145deg, #1A2433, #0F1722);
-            border: 1px solid var(--accent-gold);
-            border-radius: 40px;
-            padding: 30px 40px;
-            margin: 50px 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+        /* Testimonial Section */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
         }
 
-        .offer-text {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            position: relative;
         }
 
-        .offer-text i {
-            font-size: 3rem;
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
             color: var(--accent-gold);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 20px;
         }
 
-        .offer-text h3 {
-            font-size: 1.8rem;
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            color: var(--accent-gold);
+            font-size: 1.2rem;
+            color: var(--bg-primary);
         }
 
-        .offer-badge {
-            background: rgba(201, 169, 110, 0.2);
-            border: 1px solid var(--accent-gold);
-            padding: 15px 30px;
-            border-radius: 40px;
+        .author-info h4 {
             font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(201, 169, 110, 0.1);
+            border-radius: 16px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-question i {
             color: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 25px 20px;
+            max-height: 200px;
         }
 
         /* Contact Section */
@@ -331,6 +495,7 @@
             display: flex;
             gap: 20px;
             color: var(--text-secondary);
+            flex-wrap: wrap;
         }
 
         .contact-features i {
@@ -352,11 +517,6 @@
             opacity: 0.5;
         }
 
-        .contact-image p {
-            margin-top: 20px;
-            color: var(--text-secondary);
-        }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -366,24 +526,75 @@
         }
 
         /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                order: 2;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--bg-card);
                 flex-direction: column;
-                gap: 15px;
                 align-items: flex-start;
+                padding: 80px 30px;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                gap: 20px;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 10px 0 10px 20px;
+                display: none;
+            }
+
+            .nav-item.active .dropdown {
+                display: block;
+            }
+
+            .nav-phone {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
             }
 
             .hero h2 {
                 font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-badge {
-                padding: 12px 20px;
-                font-size: 0.9rem;
             }
 
             .section-title {
@@ -394,14 +605,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .offer-banner {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .offer-text {
-                justify-content: center;
+            .testimonial-grid {
+                grid-template-columns: 1fr;
             }
 
             .contact-grid {
@@ -411,17 +616,12 @@
             .contact-phone span {
                 font-size: 1.4rem;
             }
-
-            .contact-phone {
-                padding: 15px 20px;
-            }
-
-            .contact-section {
-                padding: 30px 20px;
-            }
         }
 
-        /* Animation */
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -432,10 +632,6 @@
                 transform: translateY(0);
             }
         }
-
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
-        }
     </style>
 </head>
 <body>
@@ -443,12 +639,61 @@
         <!-- Navbar -->
         <nav class="navbar">
             <div class="logo">
-                <h1>Legal Counsel Pro</h1>
-                <span>SOLUSI LEGALITAS BISNIS</span>
+                <h1>LegalinBossID</h1>
+                <span>LEGAL CONSULTANT</span>
             </div>
-            <div class="nav-phone">
-                <i class="fas fa-phone-alt"></i>
-                <a href="tel:087715373601">0877 1537 3601</a>
+
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-menu">
+                <!-- Dropdown Tentang Kami -->
+                <div class="nav-item">
+                    <div class="nav-link">
+                        Tentang Kami <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#"><i class="fas fa-building"></i> Profil Perusahaan</a>
+                        <a href="#"><i class="fas fa-users"></i> Tim Ahli</a>
+                        <a href="#"><i class="fas fa-handshake"></i> Mitra & Klien</a>
+                        <a href="#"><i class="fas fa-award"></i> Sertifikasi</a>
+                        <a href="#"><i class="fas fa-newspaper"></i> Berita & Artikel</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown Hubungi Kami -->
+                <div class="nav-item">
+                    <div class="nav-link">
+                        Hubungi Kami <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="tel:087715373601"><i class="fas fa-phone"></i> Telepon</a>
+                        <a href="https://wa.me/6287715373601"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="mailto:info@legalinbosid.com"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i> Kantor Pusat</a>
+                        <a href="#"><i class="fas fa-clock"></i> Jam Operasional</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown Layanan -->
+                <div class="nav-item">
+                    <div class="nav-link">
+                        Layanan <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#"><i class="fas fa-building"></i> Pendirian Perusahaan</a>
+                        <a href="#"><i class="fas fa-file-signature"></i> Perizinan Usaha</a>
+                        <a href="#"><i class="fas fa-hard-hat"></i> Sertifikasi K3</a>
+                        <a href="#"><i class="fas fa-ship"></i> Dokumen Kapal</a>
+                        <a href="#"><i class="fas fa-globe"></i> ISO</a>
+                    </div>
+                </div>
+
+                <div class="nav-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:087715373601">0877 1537 3601</a>
+                </div>
             </div>
         </nav>
 
@@ -459,32 +704,46 @@
                 <p>Optimalkan strategi, tingkatkan efisiensi, dan pencapaian keberlanjutan bisnis dengan layanan konsultasi kami yang terpercaya dan berpengalaman.</p>
                 <div class="hero-badge">
                     <i class="fas fa-gem"></i>
-                    <span>Save More with Daily Special Offers & Best Prices</span>
+                    <span>Hemat Lebih Banyak dengan Penawaran Spesial Harian & Harga Terbaik</span>
                 </div>
             </div>
         </section>
 
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Klien Puas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Tahun Pengalaman</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Legal & Terpercaya</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Konsultasi</div>
+            </div>
+        </div>
+
         <!-- Main Services -->
-        <h2 class="section-title">Layanan Unggulan</h2>
+        <h2 class="section-title">Layanan Unggulan Kami</h2>
         <div class="service-grid" id="mainServices"></div>
 
         <!-- Additional Services -->
         <h2 class="section-title">Layanan Lengkap Lainnya</h2>
         <div class="service-grid" id="additionalServices"></div>
 
-        <!-- Special Offer Banner -->
-        <div class="offer-banner">
-            <div class="offer-text">
-                <i class="fas fa-tags"></i>
-                <h3>Special Daily Offers</h3>
-            </div>
-            <div class="offer-badge">
-                <i class="fas fa-clock"></i> Limited Time
-            </div>
-        </div>
+        <!-- Testimonial Section -->
+        <h2 class="section-title">Apa Kata Klien Kami</h2>
+        <div class="testimonial-grid" id="testimonials"></div>
 
-        <!-- Extra Services -->
-        <div class="service-grid" id="extraServices"></div>
+        <!-- FAQ Section -->
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <div class="faq-grid" id="faq"></div>
 
         <!-- Contact Section -->
         <section class="contact-section">
@@ -502,25 +761,26 @@
                         <div><i class="fas fa-check-circle"></i> Respon Cepat</div>
                         <div><i class="fas fa-check-circle"></i> Konsultasi Gratis</div>
                         <div><i class="fas fa-check-circle"></i> Terpercaya</div>
+                        <div><i class="fas fa-check-circle"></i> Bergaransi</div>
                     </div>
                 </div>
                 
                 <div class="contact-image">
                     <i class="fas fa-balance-scale"></i>
-                    <p>Legal Consultant Professional<br>Pengalaman Lebih dari 10 Tahun</p>
+                    <p>Konsultan Legal Professional<br>Pengalaman Lebih dari 15 Tahun</p>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>© 2024 Legal Counsel Pro. All rights reserved. | Professional Legal & Business Solutions</p>
+            <p>© 2024 LegalinBossID. Seluruh hak cipta dilindungi. | Solusi Legal & Bisnis Professional</p>
         </footer>
     </div>
 
     <!-- JavaScript -->
     <script>
-        // Data services berdasarkan gambar
+        // Data services
         const mainServices = [
             "Pendirian dan Perubahan Badan Usaha",
             "Contractor Safety Management System (CSMS)",
@@ -528,12 +788,12 @@
             "Kartu Pengawasan",
             "Izin Niaga Umum (INU)",
             "Penyimpanan Migas (SKUP)",
-            "Standar Nasional Indonesia (NSI)",
+            "Standar Nasional Indonesia (SNI)",
             "Nomor Induk Berusaha (NIB)",
             "PKKPR",
             "Penambahan KBLI, SPPL, Sertifikat Standard OSS",
             "IUJP, IUP, IUP OPK",
-            "Kartu Pengawasan (dua)",
+            "Kartu Pengawasan",
             "Laporan Pajak & Keuangan"
         ];
 
@@ -545,30 +805,61 @@
             "Sertifikat Badan Usaha (SBU)",
             "Surat Izin Usaha Jasa Pengurusan Transportasi (SIUJPT)",
             "International Organization for Standardization (ISO)",
-            "Pengurusan Dok Kapal (SIUPAL, RPT, dll)",
+            "Pengurusan Dokumen Kapal (SIUPAL, RPT, dll)",
             "Persetujuan Layak Operasi (PLO)",
             "Sertifikat Laik Fungsi (SLF)",
             "Badan Pengawas Obat dan Makanan (BPOM)"
         ];
 
-        const extraServices = [
-            "Sertifikasi BNSP & Kemnaker",
-            "Pengurusan SIUP dan TDP",
-            "Legal Drafting & Kontrak Bisnis",
-            "Due Diligence Perusahaan"
+        const testimonials = [
+            {
+                text: "Pelayanan sangat profesional dan cepat. Tim LegalinBossID membantu pengurusan NIB dan izin usaha saya dalam waktu 3 hari. Sangat direkomendasikan!",
+                author: "Budi Santoso",
+                position: "CEO, PT Maju Jaya",
+                initial: "BS"
+            },
+            {
+                text: "Konsultan yang berpengalaman dan responsif. Membantu pengurusan sertifikasi K3 perusahaan kami dengan baik. Terima kasih LegalinBossID!",
+                author: "Siti Rahma",
+                position: "HRD, CV Karya Mandiri",
+                initial: "SR"
+            },
+            {
+                text: "Proses pengurusan izin ekspor impor jadi lebih mudah dengan bantuan tim LegalinBossID. Komunikatif dan harga terjangkau.",
+                author: "Ahmad Hidayat",
+                position: "Direktur, UD Berkah",
+                initial: "AH"
+            }
         ];
 
-        // Icon mapping (random tapi relevan)
+        const faqs = [
+            {
+                question: "Berapa lama proses pengurusan NIB?",
+                answer: "Proses pengurusan NIB biasanya selesai dalam 1-3 hari kerja setelah dokumen persyaratan lengkap."
+            },
+            {
+                question: "Apa saja dokumen yang diperlukan untuk pendirian PT?",
+                answer: "Dokumen yang diperlukan: KTP dan NPWP para pendiri, akta notaris, dan domisili perusahaan. Tim kami akan membantu lengkap."
+            },
+            {
+                question: "Apakah konsultasi awal dikenakan biaya?",
+                answer: "Tidak, konsultasi awal GRATIS. Kami akan membantu menganalisis kebutuhan legalitas bisnis Anda tanpa biaya."
+            },
+            {
+                question: "Bagaimana cara menghubungi tim LegalinBossID?",
+                answer: "Anda dapat menghubungi kami via telepon 0877 1537 3601, WhatsApp, atau email ke info@legalinbosid.com."
+            }
+        ];
+
         const icons = [
             "fa-building", "fa-hard-hat", "fa-truck", "fa-id-card", "fa-store", 
             "fa-oil-can", "fa-certificate", "fa-fingerprint", "fa-map-marked-alt",
             "fa-plus-circle", "fa-hard-hat", "fa-id-card", "fa-file-invoice-dollar",
             "fa-chalkboard-teacher", "fa-kaaba", "fa-laptop", "fa-leaf", "fa-briefcase",
             "fa-ship", "fa-globe", "fa-ship", "fa-check-double", "fa-clipboard-check",
-            "fa-capsules", "fa-award", "fa-file-signature", "fa-gavel", "fa-search"
+            "fa-capsules"
         ];
 
-        // Function to create service cards
         function createServiceCards(services, elementId, startIconIndex = 0) {
             const container = document.getElementById(elementId);
             if (!container) return;
@@ -580,11 +871,12 @@
                 const iconIndex = (startIconIndex + index) % icons.length;
                 const icon = icons[iconIndex];
                 
-                // Get short description
                 let description = "Layanan profesional & terpercaya untuk kebutuhan bisnis Anda.";
                 if (service.includes("ISO")) description = "Sertifikasi sistem manajemen internasional.";
                 else if (service.includes("K3")) description = "Keselamatan dan kesehatan kerja.";
                 else if (service.includes("Amdal")) description = "Analisis dampak lingkungan.";
+                else if (service.includes("NIB")) description = "Nomor Induk Berusaha (NIB) cepat.";
+                else if (service.includes("SNI")) description = "Standar Nasional Indonesia.";
                 
                 card.innerHTML = `
                     <div class="service-icon"><i class="fas ${icon}"></i></div>
@@ -596,12 +888,86 @@
             });
         }
 
-        // Load all services when page ready
+        function createTestimonials() {
+            const container = document.getElementById('testimonials');
+            if (!container) return;
+
+            testimonials.forEach(t => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card animate';
+                card.innerHTML = `
+                    <div class="testimonial-text">"${t.text}"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">${t.initial}</div>
+                        <div class="author-info">
+                            <h4>${t.author}</h4>
+                            <p>${t.position}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function createFAQ() {
+            const container = document.getElementById('faq');
+            if (!container) return;
+
+            faqs.forEach((faq, index) => {
+                const item = document.createElement('div');
+                item.className = 'faq-item';
+                item.innerHTML = `
+                    <div class="faq-question">
+                        ${faq.question}
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        ${faq.answer}
+                    </div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+                
+                container.appendChild(item);
+            });
+        }
+
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             createServiceCards(mainServices, 'mainServices', 0);
             createServiceCards(additionalServices, 'additionalServices', 13);
-            createServiceCards(extraServices, 'extraServices', 24);
+            createTestimonials();
+            createFAQ();
+
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            menuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Mobile dropdown toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('.nav-link');
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
-  </html>
+</html>
