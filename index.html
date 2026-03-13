@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>LegalinBossID - Legal Consultant & AI Assistant</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <h1>LegalinBossID</h1>
+                <span>LEGAL CONSULTANT</span>
+            </div>
+
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="nav-menu">
+                <!-- Dropdown Tentang Kami -->
+                <div class="nav-item">
+                    <div class="nav-link">
+                        Tentang Kami <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#"><i class="fas fa-building"></i> Profil Perusahaan</a>
+                        <a href="#"><i class="fas fa-users"></i> Tim Ahli</a>
+                        <a href="#"><i class="fas fa-handshake"></i> Mitra & Klien</a>
+                        <a href="#"><i class="fas fa-award"></i> Sertifikasi</a>
+                        <a href="#"><i class="fas fa-newspaper"></i> Berita & Artikel</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown Hubungi Kami -->
+                <div class="nav-item">
+                    <div class="nav-link">
+                        Hubungi Kami <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="tel:087715373601"><i class="fas fa-phone"></i> Telepon</a>
+                        <a href="https://wa.me/6287715373601"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="mailto:info@legalinbosid.com"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i> Kantor Pusat</a>
+                        <a href="#"><i class="fas fa-clock"></i> Jam Operasional</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown Layanan -->
+                <div class="nav-item">
+                    <div class="nav-link">
+                        Layanan <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown">
+                        <a href="profil-perusahaan.html"><i class="fas fa-building"></i> Pendirian Perusahaan</a>
+                        <a href="#"><i class="fas fa-file-signature"></i> Perizinan Usaha</a>
+                        <a href="#"><i class="fas fa-hard-hat"></i> Sertifikasi K3</a>
+                        <a href="#"><i class="fas fa-ship"></i> Dokumen Kapal</a>
+                        <a href="#"><i class="fas fa-globe"></i> ISO</a>
+                    </div>
+                </div>
+
+                <div class="nav-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:087715373601">0877 1537 3601</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero animate">
+            <div class="hero-content">
+                <h2>Layanan Perizinan & Legalitas Bisnis Professional dan Terpercaya</h2>
+                <p>Optimalkan strategi, tingkatkan efisiensi, dan pencapaian keberlanjutan bisnis dengan layanan konsultasi kami yang terpercaya dan berpengalaman.</p>
+                <div class="hero-badge">
+                    <i class="fas fa-gem"></i>
+                    <span>Hemat Lebih Banyak dengan Penawaran Spesial Harian & Harga Terbaik</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Klien Puas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Tahun Pengalaman</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Legal & Terpercaya</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Konsultasi</div>
+            </div>
+        </div>
+
+        <!-- Main Services -->
+        <h2 class="section-title">Layanan Unggulan Kami</h2>
+        <div class="service-grid" id="mainServices"></div>
+
+        <!-- Additional Services -->
+        <h2 class="section-title">Layanan Lengkap Lainnya</h2>
+        <div class="service-grid" id="additionalServices"></div>
+
+        <!-- Testimonial Section -->
+        <h2 class="section-title">Apa Kata Klien Kami</h2>
+        <div class="testimonial-grid" id="testimonials"></div>
+
+        <!-- FAQ Section -->
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <div class="faq-grid" id="faq"></div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Hubungi Kami Sekarang</h3>
+                    <p>Konsultasi gratis untuk kebutuhan legalitas dan perizinan bisnis Anda. Tim ahli kami siap membantu 24/7.</p>
+                    
+                    <div class="contact-phone">
+                        <i class="fas fa-phone-volume"></i>
+                        <span>0877 1537 3601</span>
+                    </div>
+
+                    <div class="contact-features">
+                        <div><i class="fas fa-check-circle"></i> Respon Cepat</div>
+                        <div><i class="fas fa-check-circle"></i> Konsultasi Gratis</div>
+                        <div><i class="fas fa-check-circle"></i> Terpercaya</div>
+                        <div><i class="fas fa-check-circle"></i> Bergaransi</div>
+                    </div>
+                </div>
+                
+                <div class="contact-image">
+                    <i class="fas fa-balance-scale"></i>
+                    <p>Konsultan Legal Professional<br>Pengalaman Lebih dari 15 Tahun</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 LegalinBossID. Seluruh hak cipta dilindungi. | Solusi Legal & Bisnis Professional</p>
+        </footer>
+    </div>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <!-- Chat Button -->
+        <div class="chat-button" id="chatButton">
+            <i class="fas fa-gavel"></i>
+            <span class="notification-badge">1</span>
+        </div>
+
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox" style="display: none;">
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div class="chat-avatar">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="chat-title">
+                        <h3>Legal AI Assistant</h3>
+                        <p><i class="fas fa-circle"></i> Online • Siap membantu</p>
+                    </div>
+                </div>
+                <button class="close-button" id="closeChat">×</button>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be inserted here -->
+            </div>
+
+            <!-- Quick Contact Buttons -->
+            <div class="quick-contact">
+                <a href="https://wa.me/6287715373601" class="quick-contact-btn whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:087715373601" class="quick-contact-btn phone-btn">
+                    <i class="fas fa-phone"></i> Telepon
+                </a>
+            </div>
+
+            <!-- Suggestion Chips -->
+            <div class="chat-suggestions" id="chatSuggestions"></div>
+
+            <!-- Input Form -->
+            <form class="chat-input-form" id="chatForm">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Tanya tentang legalitas bisnis..." autocomplete="off">
+                <button type="submit" class="send-button" id="sendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="data.js"></script>
+    <script src="chat.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
